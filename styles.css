@@ -1,0 +1,231 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Dark text for contrast */
+    font-family: 'Inter var', 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.animated-element {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    /* Prevents white space at bottom during scroll */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Animation */
+@keyframes coolBackground {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        background-size: 300% 300%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.half-screen.right-screen {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: coolBackground 3s infinite alternate;
+}
+
+.half-screen.left-screen {
+    background: linear-gradient(60deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
+    background-size: 400% 400%;
+    animation: coolBackground 3s ease-in-out infinite;
+}
+
+.topSection {
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+
+.topSection a {
+    color: white;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 2.7rem;
+    font-weight: bold;
+    display: block;
+}
+
+.half-screen {
+    height: 100vh;
+    width: 50vw;
+    position: absolute;
+    z-index: 10;
+}
+
+.half-screen a {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    transform-style: preserve-3d;
+}
+
+.half-screen {
+    perspective: 600px;
+}
+
+.half-screen a:hover,
+.half-screen a:focus {
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.half-screen:hover a,
+.half-screen:focus a {
+    /* This transform will be set via JavaScript to follow the mouse pointer */
+    text-decoration: underline;
+}
+
+/* Reset link styles */
+a {
+    text-decoration: none;
+}
+
+.half-screen.left-screen {
+    top: 0;
+    left: 0;
+}
+
+.half-screen.right-screen {
+    right: 0;
+    top: 0;
+    /* background-color: black; */
+}
+
+.half-screen a {
+    color: rgb(250, 250, 250);
+    font-family: 'Inter var', 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+
+    html,
+    body {
+        height: 100vh;
+        /* Ensure the full viewport height is used */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+        overflow-x: hidden;
+        /* Disable horizontal scrolling */
+    }
+
+    .topSection {
+        position: static;
+        height: 100vh;
+        /* Make topSection fill the viewport height */
+        width: 100vw;
+        /* Make topSection fill the viewport width */
+    }
+
+    .half-screen {
+        width: 100vw;
+        /* Each half-screen takes up the full viewport width */
+        height: 50vh;
+        /* Each half-screen takes up half the viewport height */
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
+    .half-screen a {
+        line-height: 50vh;
+        /* Center text vertically within half-screen */
+        font-size: 1.5rem;
+        /* Adjust font size for mobile */
+    }
+
+    .half-screen.right-screen {
+        right: auto;
+        /* Reset any previously set positioning */
+    }
+}
+
+/* Add the keyframes for the dramatic animation */
+@keyframes dramaticEffect {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add the dramatic animation class with the keyframes */
+.dramatic-animation {
+    animation: dramaticEffect 1s ease-in-out;
+}
+
+/* @keyframes campfire-flicker {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 30px rgba(255, 110, 0, 0.9),
+            0 0 0 60px rgba(255, 110, 0, 0.75),
+            0 0 0 90px rgba(255, 110, 0, 0.6),
+            0 0 0 120px rgba(255, 110, 0, 0.4),
+            0 0 0 150px rgba(255, 110, 0, 0.3),
+            0 0 0 180px rgba(255, 110, 0, 0.2),
+            0 0 0 210px rgba(255, 110, 0, 0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 30px rgba(255, 110, 0, 0.8),
+            0 0 0 60px rgba(255, 110, 0, 0.65),
+            0 0 0 90px rgba(255, 110, 0, 0.5),
+            0 0 0 120px rgba(255, 110, 0, 0.35),
+            0 0 0 150px rgba(255, 110, 0, 0.25),
+            0 0 0 180px rgba(255, 110, 0, 0.15),
+            0 0 0 210px rgba(255, 110, 0, 0.05);
+    }
+}
+
+body::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: #ff6e00;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: campfire-flicker 1s infinite alternate;
+} */
