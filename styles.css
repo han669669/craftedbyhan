@@ -158,46 +158,36 @@ a {
 }
 
 /* Media Queries */
-@media only screen and (max-width: 768px) {
-
+@media only screen and (max-width: 991px) {
     html,
     body {
-        height: 100vh;
-        /* Ensure the full viewport height is used */
-        overflow-y: auto;
-        /* Enable vertical scrolling */
+        height: 100%;
+        overflow-y: hidden;
         overflow-x: hidden;
-        /* Disable horizontal scrolling */
     }
 
     .topSection {
         position: static;
         height: 100vh;
-        /* Make topSection fill the viewport height */
         width: 100vw;
-        /* Make topSection fill the viewport width */
     }
 
     .half-screen {
         width: 100vw;
-        /* Each half-screen takes up the full viewport width */
         height: 50vh;
-        /* Each half-screen takes up half the viewport height */
         position: relative;
-        top: auto;
-        left: auto;
+        top: 0;
+        left: 0;
     }
 
     .half-screen a {
         line-height: 50vh;
-        /* Center text vertically within half-screen */
         font-size: 1.5rem;
-        /* Adjust font size for mobile */
+        letter-spacing: 0.05rem;
     }
 
     .half-screen.right-screen {
-        right: auto;
-        /* Reset any previously set positioning */
+        right: 0;
     }
 }
 
