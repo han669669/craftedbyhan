@@ -12,9 +12,12 @@ body {
 }
 
 .animated-element {
-    animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
 }
 
 html,
@@ -26,11 +29,28 @@ body {
 body {
     /* Prevents white space at bottom during scroll */
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 /* Background Animation */
+@-webkit-keyframes coolBackground {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        background-size: 300% 300%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
 @keyframes coolBackground {
 
     0%,
@@ -45,15 +65,19 @@ body {
 }
 
 .half-screen.right-screen {
+    background: -o-linear-gradient(135deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
-    animation: coolBackground 3s infinite alternate;
+    -webkit-animation: coolBackground 3s infinite alternate;
+            animation: coolBackground 3s infinite alternate;
 }
 
 .half-screen.left-screen {
+    background: -o-linear-gradient(30deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
     background: linear-gradient(60deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
     background-size: 400% 400%;
-    animation: coolBackground 3s ease-in-out infinite;
+    -webkit-animation: coolBackground 3s ease-in-out infinite;
+            animation: coolBackground 3s ease-in-out infinite;
 }
 
 .topSection {
@@ -82,17 +106,24 @@ body {
 }
 
 .half-screen a {
+    -webkit-transition: -webkit-transform 0.3s ease-out, -webkit-box-shadow 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out, -webkit-box-shadow 0.3s ease-out;
+    -o-transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, -webkit-transform 0.3s ease-out, -webkit-box-shadow 0.3s ease-out;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
 }
 
 .half-screen {
-    perspective: 600px;
+    -webkit-perspective: 600px;
+            perspective: 600px;
 }
 
 .half-screen a:hover,
 .half-screen a:focus {
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .half-screen:hover a,
@@ -171,23 +202,43 @@ a {
 }
 
 /* Add the keyframes for the dramatic animation */
-@keyframes dramaticEffect {
+@-webkit-keyframes dramaticEffect {
     0% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 
     50% {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
     }
 
     100% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+@keyframes dramaticEffect {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
 /* Add the dramatic animation class with the keyframes */
 .dramatic-animation {
-    animation: dramaticEffect 1s ease-in-out;
+    -webkit-animation: dramaticEffect 1s ease-in-out;
+            animation: dramaticEffect 1s ease-in-out;
 }
 
 /* @keyframes campfire-flicker {
